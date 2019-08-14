@@ -1,0 +1,58 @@
+<?xml version="1.0"  ?>
+<config>
+    <api2>
+        <resource_groups>
+            <callback translate="title" module="itdelight_callback">
+                <title>itdelight callback rest API</title>
+                <sort_order>10</sort_order>
+            </callback>
+        </resource_groups>
+        <resources>
+            <callback translate="title" module="itdelight_callback">
+                <callback>callback</callback>
+                <model>itdelight_callback/api2_callback</model>
+                <!--<working_model>itdelight_callback/callback</working_model>-->
+                <title>Callback Resource</title>
+                <sort_order>10</sort_order>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </customer>
+                </privileges>
+                <attributes module="itdelight_callback">>
+                    <callback_id>Callback ID</callback_id>
+                    <name>Name</name>
+                    <tel_number>Telephone</tel_number>
+                    <message>Message</message>
+                    <status>Status</status>
+                    <created>Created</created>
+                    <called>Called</called>
+                    <comment>Comment</comment>
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/callback/:callback_id</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                    <route_collection>
+                        <route>/callback</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                </routes>
+                <!--<validators>-->
+                    <!---->
+                <!--</validators>-->
+                <versions>1</versions>
+            </callback>
+        </resources>
+    </api2>
+</config>

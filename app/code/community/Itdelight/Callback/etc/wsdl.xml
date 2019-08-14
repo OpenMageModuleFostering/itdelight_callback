@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:typens="urn:{{var wsdl.name}}" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/"
+             name="{{var wsdl.name}}" targetNamespace="urn:{{var wsdl.name}}">
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Magento">
+            <import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/" />
+            <complexType name="itdelightCallbackListEntityToUpdate">
+                <all>
+                    <element name="status" type="xsd:boolean" minOccurs="0" />
+                    <element name="called" type="xsd:string" minOccurs="0" />
+                    <element name="comment" type="xsd:string" minOccurs="0" />
+                </all>
+            </complexType>
+            <complexType name="itdelightCallbackListEntity">
+                <all>
+                    <element name="callback_id" type="xsd:integer" minOccurs="0" />
+                    <element name="name" type="xsd:string" minOccurs="0" />
+                    <element name="tel_number" type="xsd:string" minOccurs="0" />
+                    <element name="message" type="xsd:string" minOccurs="0" />
+                    <element name="status" type="xsd:boolean" minOccurs="0" />
+                    <element name="created" type="xsd:string" minOccurs="0" />
+                    <element name="called" type="xsd:string" minOccurs="0" />
+                    <element name="comment" type="xsd:string" minOccurs="0" />
+                </all>
+            </complexType>
+            <complexType name="itdelightCallbackListEntityArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:itdelightCallbackListEntity[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+        </schema>
+    </types>
+
+    <!--Messages-->
+    <message name="itdelightCallbackListRequest">
+        <part name="sessionId" type="xsd:string"/>
+        <part name="filters" type="typens:filters" />
+    </message>
+    <message name="itdelightCallbackListResponse">
+        <part name="result" type="typens:itdelightCallbackListEntityArray" />
+    </message>
+    <message name="itdelightCallbackInfoRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="callbackId" type="xsd:int" />
+    </message>
+    <message name="itdelightCallbackInfoResponse">
+        <part name="callbackInfo" type="typens:itdelightCallbackListEntity" />
+    </message>
+    <message name="itdelightCallbackUpdateRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="callbackId" type="xsd:int" />
+        <part name="callbackData" type="typens:itdelightCallbackListEntityToUpdate" />
+    </message>
+    <message name="itdelightCallbackUpdateResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+
+    <!--portType-->
+    <portType name="{{var wsdl.handler}}PortType">
+        <operation name="itdelightCallbackList">
+            <documentation>Listing of callbacks</documentation>
+            <input message="typens:itdelightCallbackListRequest" />
+            <output message="typens:itdelightCallbackListResponse" />
+        </operation>
+        <operation name="itdelightCallbackInfo">
+            <documentation>Callback info</documentation>
+            <input message="typens:itdelightCallbackInfoRequest" />
+            <output message="typens:itdelightCallbackInfoResponse" />
+        </operation>
+        <operation name="itdelightCallbackUpdate">
+            <documentation>Update Callback data</documentation>
+            <input message="typens:itdelightCallbackUpdateRequest" />
+            <output message="typens:itdelightCallbackUpdateResponse" />
+        </operation>
+    </portType>
+
+
+    <binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="itdelightCallbackList">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="itdelightCallbackInfo">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="itdelightCallbackUpdate">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+    </binding>
+
+    <service name="{{var wsdl.name}}Service">
+        <port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+            <soap:address location="{{var wsdl.url}}" />
+        </port>
+    </service>
+</definitions>

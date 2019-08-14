@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Itdelight Callback
+*
+* @author     ItDelight Team
+* @contact    info@itdelight.com
+* @category   module configuration
+* @package    Itdelight_Callback
+* @site       https://itdelight.com/
+* @copyright  Copyright (c) 2016 Itdelight Callback
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <tabs>
+        <itdelight_callback translate="label" module="itdelight_callback">
+            <label>Callback</label>
+            <sort_order>100</sort_order>
+        </itdelight_callback>
+    </tabs>
+    <sections>
+        <itdelight_callback translate="label" module="itdelight_callback">
+            <label>Extension Options</label>
+            <tab>itdelight_callback</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <frontend_type>text</frontend_type>
+            <groups>
+                <options translate="label" module="itdelight_callback">
+                    <label>My Extension Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable translate="label">
+                            <label>Enable</label>
+                            <comment>Enable callbacks</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>20</sort_order>
+                            <source_model>adminhtml/System_Config_Source_Yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+                    </fields>
+                </options>
+            </groups>
+        </itdelight_callback>
+    </sections>
+</config>

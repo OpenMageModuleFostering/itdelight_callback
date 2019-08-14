@@ -1,0 +1,71 @@
+<?xml version="1.0"  ?>
+<config>
+    <api>
+        <resources>
+            <callback translate="title" module="itdelight_callback">
+                <model>itdelight_callback/callback_api</model>
+                <title>Callback Resource</title>
+                <acl>callback</acl>
+                <methods>
+                    <list translate="title" module="itdelight_callback">
+                        <title>Retrieve Callbacks</title>
+                        <method>items</method>
+                        <acl>callback/list</acl>
+                    </list>
+                    <info translate="title" module="itdelight_callback">
+                        <title>Retrieve Callback data</title>
+                        <acl>callback/info</acl>
+                    </info>
+                    <update translate="title" module="itdelight_callback">
+                        <title>Update Callback data</title>
+                        <acl>callback/update</acl>
+                    </update>
+                </methods>
+                <faults module="itdelight_callback">
+                    <data_invalid> <!-- if we get invalid input data for customers -->
+                        <code>100</code >
+                        <!-- we cannot know all the errors that can appear, their details can be found in error message for call -->
+                        <message>Invalid callback data. Details in error message.</message>
+                    </data_invalid>
+                    <filters_invalid>
+                        <code>101</code >
+                        <message>Invalid filters specified. Details in error message.</message>
+                    </filters_invalid>
+                    <not_exists>
+                        <code>102</code >
+                        <message>Callback doesn't exist.</message>
+                    </not_exists>
+                    <not_deleted>
+                        <code>103</code >
+                        <message>Callback was not deleted. Details in error message.</message>
+                    </not_deleted>
+                    <not_saved>
+                        <code>104</code>
+                        <message>Callback was not saved.</message>
+                    </not_saved>
+                </faults>
+            </callback>
+        </resources>
+        <v2>
+            <resources_function_prefix>
+                <callback>itdelightCallback</callback>
+            </resources_function_prefix>
+        </v2>
+        <acl>
+            <resources>
+                <callback translate="title" module="itdelight_callback">
+                    <title>Callback</title>
+                    <list translate="title" module="itdelight_callback">
+                        <title>View All</title>
+                    </list>
+                    <info translate="title" module="itdelight_callback">
+                        <title>Get Info</title>
+                    </info>
+                    <update translate="title" module="itdelight_callback">
+                        <title>Update</title>
+                    </update>
+                </callback>
+            </resources>
+        </acl>
+    </api>
+</config>

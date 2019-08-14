@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Itdelight_Callback>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Itdelight_Callback>
+    </modules>
+</config>

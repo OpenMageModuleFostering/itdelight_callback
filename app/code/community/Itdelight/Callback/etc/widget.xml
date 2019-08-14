@@ -1,0 +1,39 @@
+<?xml version="1.0"  ?>
+<!--
+/**
+* Itdelight Callback
+*
+* @author     ItDelight Team
+* @contact    info@itdelight.com
+* @category   module configuration
+* @package    Itdelight_Callback
+* @site       https://itdelight.com/
+* @copyright  Copyright (c) 2016 Itdelight Callback
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<widgets>
+    <reference name="head">
+        <action method="addCss">
+            <stylesheet>css/itdelight_callback.css</stylesheet>
+        </action>
+    </reference>
+    <itdelight_callback_callback type="itdelight_callback/callback" module="itdelight_callback" >
+        <name>Itdelight Callback</name>
+        <description>Allows to leave the telephone number for callback</description>
+        <parameters>
+            <template >
+                <label>Frontend Template</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+                <values>
+                    <main>
+                        <value>itdelight/callback/main.phtml</value>
+                        <label>Itdelight Callback main template</label>
+                    </main>
+                </values>
+            </template>
+        </parameters>
+    </itdelight_callback_callback>
+</widgets>

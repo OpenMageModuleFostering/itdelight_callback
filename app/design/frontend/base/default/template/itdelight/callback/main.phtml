@@ -1,0 +1,55 @@
+<?php
+/**
+ * Itdelight Callback
+ *
+ * @author     ItDelight Team
+ * @contact    info@itdelight.com
+ * @category   module configuration
+ * @package    Itdelight_Callback
+ * @site       https://itdelight.com/
+ * @copyright  Copyright (c) 2016 Itdelight Callback
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<?php if($this->enableModule() == 1): ?>
+    <?php $formId = rand(1,100000); ?>
+    <div class="callback-form">
+        <div id="callback<?php echo $formId; ?>" class="callback">
+            <h1><?php echo $this->__("Do you want us to call you?"); ?></h1>
+            <button id="popup" class="button" onclick="div_show(this)"><?php echo $this->__("Callback"); ?></button>
+            <div id="formBlock" class="formBlock">
+                <div id="popupCallback" style="display: none" class="popupCallback">
+                    <form  id="form-<?php echo $formId; ?>" method="post" name="form">
+                        <div class="callback_form_wrap">
+                            <h2><?php echo $this->__("Callback"); ?></h2>
+                            <label for="name_field<?php echo $formId; ?>"><?php echo $this->__('Name'); ?>
+                                <span>*</span>
+                                <input name="name" type="text" class="input-text required-entry" id="name_field<?php echo $formId; ?>">
+                            </label>
+                            <label for="tel_field<?php echo $formId; ?>"><?php echo $this->__('Phone Number'); ?>
+                                <span>*</span>
+                                <input name="tel_number" type="text" class="input-text required-entry validate-phoneStrict" id="tel_field<?php echo $formId; ?>">
+                            </label>
+                            <label for="message_field<?php echo $formId; ?>"><?php echo $this->__('Leave the message'); ?>
+                                <textarea name="message" class="input-text" id="message_field<?php echo $formId; ?>"></textarea>
+                            </label>
+                            <button id="submit<?php echo $formId; ?>" class="button submit" name="submit<?php echo $formId; ?>" type="submit" >
+                                <?php echo $this->__("Submit"); ?>
+                            </button>
+                        </div>
+                        <p class="close"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="successMessage<?php echo $formId; ?>" class="successMessage" style="display: none">
+            <p id="success<?php echo $formId; ?>" class="success"></p>
+        </div>
+    </div>
+    <script type="text/javascript">
+        jQuery(window).load(function(){
+            var id = '<?php echo $formId; ?>';
+            callbackForm.init(id);
+        });
+    </script>
+<?php endif; ?>
