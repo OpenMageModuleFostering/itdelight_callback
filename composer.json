@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/Itdelight_Callback",
+    "name": "openmage-module-fostering\/itdelight_callback",
     "type": "magento-module",
-    "license": "OSL",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "Magento widget shows a form with phone number, name and message fields on the front-end of your site.",
     "authors": [
