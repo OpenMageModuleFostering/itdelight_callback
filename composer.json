@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Itdelight_Callback",
+    "name": "OpenMageModuleFostering\/Itdelight_Callback",
     "type": "magento-module",
     "license": "OSL",
     "homepage": "",
     "description": "Magento widget shows a form with phone number, name and message fields on the front-end of your site.",
     "authors": [
-    {
-        "name": "ItDelight Team",
-        "email": "igor@itdelight.com"
-    }
-],
+        {
+            "name": "ItDelight Team",
+            "email": "igor@itdelight.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
